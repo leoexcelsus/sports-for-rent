@@ -10,10 +10,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_22_210239) do
+ActiveRecord::Schema.define(version: 2020_09_23_141136) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "products", force: :cascade do |t|
+    t.string "description"
+    t.integer "price"
+    t.string "address"
+    t.float "latitude"
+    t.float "longitude"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_products_on_user_id"
+  end
+
+  create_table "rentals", force: :cascade do |t|
+    t.date "begin_date"
+    t.date "end_date"
+    t.integer "rental_price"
+    t.text "costumer_review"
+    t.text "renter_review"
+    t.bigint "product_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["product_id"], name: "index_rentals_on_product_id"
+    t.index ["user_id"], name: "index_rentals_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -27,4 +53,7 @@ ActiveRecord::Schema.define(version: 2020_09_22_210239) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "products", "users"
+  add_foreign_key "rentals", "products"
+  add_foreign_key "rentals", "users"
 end
