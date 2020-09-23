@@ -1,1 +1,21 @@
 // Specific CSS for your home-page
+.flex-container {
+  margin: 50px;
+  display: flex;
+  justify-content: space-around;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  background-color: transparent;
+}
+
+a:hover {
+  color: #f4a261;
+  text-decoration: none;
+}
+
+h1  {
+  color: white;
+}
