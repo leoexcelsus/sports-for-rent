@@ -69,4 +69,3 @@ ActiveRecord::Schema.define(version: 2020_09_23_143505) do
   add_foreign_key "rentals", "products"
   add_foreign_key "rentals", "users"
 end
-pri
