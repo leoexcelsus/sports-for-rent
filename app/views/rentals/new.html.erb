@@ -1,0 +1,8 @@
+<div class="container justify-content-center col-sm-4">
+    <%= simple_form_for [ @product, @rental ] do |f| %>
+    <%= f.input :begin_date %>
+    <%= f.input :end_date %>
+    <%= f.submit "Submit rental", class: "btn btn-primary" %>
+    <% end %>
+</div>
+<%= link_to 'Rent this product', new_product_rental_path(@product) %>
