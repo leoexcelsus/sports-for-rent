@@ -1,0 +1,26 @@
+  
+<p id="notice"><%= notice %></p>
+
+<%= image_tag "bicicleta", style: "height:100px; width:100px" %>
+
+<p>
+  <strong>Description:</strong>
+  <%= @product.description %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @product.address %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @product.price.to_f/100 %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @product.user_id %>
+</p>
+
+<%= link_to 'Back', products_path %>
