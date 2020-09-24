@@ -10,8 +10,8 @@
     </p>
 
     <p>
-    <strong>Período:</strong> From 
-    <%= @rental.begin_date %> to <%= @rental.end_date %>
+    <strong>Período:</strong> De 
+    <%= @rental.begin_date.strftime("%d/%m/%Y") %> a <%= @rental.end_date.strftime("%d/%m/%Y") %>
     </p>
 
     <p>
@@ -28,6 +28,6 @@
 </div>
 <% else %>
 
-    <p>unautorized</p>
+    <p>Acesso não autorizado</p>
 <%= link_to 'Back', root_path, class: "btn btn-ghost" %>
 <% end %>
