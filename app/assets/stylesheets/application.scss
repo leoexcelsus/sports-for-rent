@@ -11,3 +11,24 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+.products-container {
+  display: flex;
+  margin: 20px;
+}
+
+.map {
+  background-color: grey;
+  justify-content: center;
+  height: 430px;
+  margin: 0px;
+}
+
+.map h2 {
+  text-align: center;
+  color: black;
+}
+
+.form-container {
+  padding: 30px;
+}
