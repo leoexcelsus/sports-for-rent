@@ -13,7 +13,7 @@ class RentalsController < ApplicationController
         @rental.rental_price = ( @rental.end_date - @rental.begin_date ).to_i*@product.price
         @rental.user = current_user
         if @rental.save
-          redirect_to rental_path(Rental.last.id)
+          redirect_to rental_path(Rental.last.id), notice: 'Aluguel cadastrado.'
         else
           render :new
         end

@@ -20,7 +20,7 @@
     </p>
 
     <p>
-    <strong>Contacto proprietário:</strong>
+    <strong>Contato proprietário:</strong>
     <%= User.find(@rental.product.user_id).email %>
     </p>
     <%= link_to 'Enviar Avaliação', review_path, class: "btn btn-ghost" %>
