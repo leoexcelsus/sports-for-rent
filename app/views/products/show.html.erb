@@ -5,7 +5,7 @@
     <% if @product.photo.attached? %>
         <%= cl_image_tag @product.photo.key, height: 300, width: 400, crop: :fill %> 
     <% else %>
-        <%= image_tag "bicicleta", style: "height:300px; width:400px" %>
+        <%= image_tag "https://res.cloudinary.com/dzml8ygng/image/upload/v1600970816/bicicleta-c255c8fd010a02d89702c6050d626217293e3ed9889eb28e287d16e69917f5d2_ziqhsf.jpg", style: "height:300px; width:400px" %>
     <% end %>
      
 
