@@ -24,10 +24,24 @@ class RentalsController < ApplicationController
       @rental = Rental.find(params[:id])
     end
 
+    def edit
+      @rental = Rental.find(params[:id])
+    end
+
+    def update
+      @rental = Rental.find(params[:id])
+      @rental.update(rental_params2)
+      redirect_to rental_path(@rental)
+
+    end
 
       private
 
       def rental_params
         params.require(:rental).permit(:begin_date, :end_date)
+      end
+
+      def rental_params2
+        params.require(:rental).permit(:costumer_review, :renter_review)
       end
 end

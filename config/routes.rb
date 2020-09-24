@@ -8,4 +8,6 @@ Rails.application.routes.draw do
   get    "products/:product_id/rentals/new",    to: "rentals#new",  as: :new_product_rental
   post   "products/:product_id/rentals/",       to: "rentals#create", as: :product_rentals
   get    "rentals/:id",                         to: "rentals#show", as: :rental
+  get    "rentals/:id/edit/",                   to: "rentals#edit" 
+  patch  "rentals/:id/",                        to: "rentals#update"
 end
