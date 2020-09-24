@@ -3,13 +3,13 @@
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <div class="form-inputs">
-    <%= f.input :description %>
-    <%= f.input :address %>
-    <%= f.input :price %>
-    <%= f.input :photo, as: :file %>
+    <%= f.input :description, label: "Produto" %>
+    <%= f.input :address, label: "Endereço" %>
+    <%= f.input :price, label: "Preço" %>
+    <%= f.input :photo, as: :file, label: "Inserir imagem" %>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.button :submit, value: "Criar novo produto", class: "btn btn-ghost" %>
   </div>
 <% end %>

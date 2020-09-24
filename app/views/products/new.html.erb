@@ -1,5 +1,10 @@
-<h1>New Product</h1>
+<div class="container justify-content-center col-sm-6">
+  <div class="form-container">
 
-<%= render 'form', product: @product %>
+    <h1>Cadastrar novo equipamento</h1>
 
-<%= link_to 'Back', products_path %>
+    <%= render 'form', product: @product %>
+
+    <%= link_to 'Voltar', products_path, class: "btn btn-ghost" %>
+  </div>
+</div>

@@ -4,30 +4,26 @@
     <p id="notice"><%= notice %></p>
   </div>
 
-<<<<<<< HEAD
   <div class="flex-container">
-    <div class="container">
+    <div class="container col-sm-7">
       <div class="box-product">
+
         <div class="img-product">
           <% if @product.photo.attached? %>
-          <%= cl_image_tag @product.photo.key, height: 300, width: 400, crop: :fill %>
+          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path product.photo.key, height: 300, width: 400, crop: :fill %>')">
           <% else %>
-          <%= image_tag "bicicleta", style: "height:300px; width:400px" %>
+          <%= image_tag "", style: "height:300px; width:400px" %>
           <% end %>
         </div>
-=======
 
-
->>>>>>> master
-
-        <div class="container">
+        <div class="description-container">
           <p>
             <strong>Equipamento:</strong>
             <%= @product.description %>
           </p>
 
           <p>
-            <strong>Endereço:</strong>
+            <strong>Onde encontrar:</strong>
             <%= @product.address %>
           </p>
 
@@ -43,14 +39,19 @@
         </div>
 
         <div>
-          <%= link_to 'Rent this product', new_product_rental_path(@product), class: "btn btn-ghost" %>
+          <%= link_to 'Alugue este equipamento', new_product_rental_path(@product), class: "btn btn-ghost" %>
           <%= link_to 'Voltar', products_path, class: "btn btn-ghost" %>
+        </div>
+        <div class="reviews">
+          Comentários
         </div>
       </div>
     </div>
+    <div class="box-map-calender col-sm-5">
+      <div class="map">
+          Mapa
+      </div>
+      <div class="calender">Calendário</div>
+    </div>
   </div>
-
-
-
-
 </div>
