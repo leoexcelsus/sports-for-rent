@@ -13,7 +13,7 @@ class Rental < ApplicationRecord
 
   def end_date_must_be_greater_than_begin_date
     if (begin_date > end_date) || (begin_date < Date.today)
-      errors.add(:begin_date, "can't be in the past and must be before end date")
+      errors.add(:begin_date, ": O início não pode ser no passado e nem após a data de término")
     end
   end
 end
