@@ -2,7 +2,7 @@
 <div class="container">
     <p id="notice"><%= notice %></p>
 
-    <%= image_tag "bicicleta", style: "height:100px; width:100px" %>
+    <%= image_tag "https://res.cloudinary.com/dzml8ygng/image/upload/v1600970816/bicicleta-c255c8fd010a02d89702c6050d626217293e3ed9889eb28e287d16e69917f5d2_ziqhsf.jpg", style: "height:100px; width:100px" %>
 
     <p>
     <strong>Equipamento:</strong>
@@ -10,8 +10,8 @@
     </p>
 
     <p>
-    <strong>Período:</strong> From 
-    <%= @rental.begin_date %> to <%= @rental.end_date %>
+    <strong>Período:</strong> De 
+    <%= @rental.begin_date.strftime("%d/%m/%Y") %> a <%= @rental.end_date.strftime("%d/%m/%Y") %>
     </p>
 
     <p>
@@ -28,6 +28,6 @@
 </div>
 <% else %>
 
-    <p>unautorized</p>
+    <p>Acesso não autorizado</p>
 <%= link_to 'Back', root_path, class: "btn btn-ghost" %>
 <% end %>

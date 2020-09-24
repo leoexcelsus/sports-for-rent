@@ -39,19 +39,39 @@
         </div>
 
         <div>
-          <%= link_to 'Alugue este equipamento', new_product_rental_path(@product), class: "btn btn-ghost" %>
+          <%= link_to 'Rent this equipament', new_product_rental_path(@product) %>
           <%= link_to 'Voltar', products_path, class: "btn btn-ghost" %>
         </div>
-        <div class="reviews">
-          Comentários
-        </div>
-      </div>
-    </div>
-    <div class="box-map-calender col-sm-5">
-      <div class="map">
-          Mapa
-      </div>
-      <div class="calender">Calendário</div>
-    </div>
+
+    <% if @product.photo.attached? %>
+        <%= cl_image_tag @product.photo.key, height: 300, width: 400, crop: :fill %>
+    <% else %>
+        <%= image_tag "https://res.cloudinary.com/dzml8ygng/image/upload/v1600970816/bicicleta-c255c8fd010a02d89702c6050d626217293e3ed9889eb28e287d16e69917f5d2_ziqhsf.jpg", style: "height:300px; width:400px" %>
+    <% end %>
+
+
+    <p>
+      <strong>Equipamento:</strong>
+      <%= @product.description %>
+    </p>
+
+    <p>
+      <strong>Endereço:</strong>
+      <%= @product.address %>
+    </p>
+
+    <p>
+      <strong>Preço:</strong>
+      R$ <%= @product.price.to_f/100 %>
+    </p>
+
+    <p>
+      <strong>Usuário:</strong>
+      <%= @product.user.email %>
+    </p>
+
+  <%= link_to 'Rent this product', new_product_rental_path(@product), class: "btn btn-ghost" %>
+  <%= link_to 'Voltar', products_path, class: "btn btn-ghost" %>
+>>>>>>> master
   </div>
 </div>
