@@ -11,7 +11,7 @@
 </div>
 <div class="flex-container">
   <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1525289792728-f43da278fcd6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=747&q=80)">
-  Busque seu equipamento
+  <%= link_to "Busque seu equipamento", products_path %>
   </div>
   <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1569074187119-c87815b476da?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=625&q=80)">
   <%= link_to "Abra sua conta", new_user_registration_path %>
@@ -20,3 +20,4 @@
   Alugue seu equipamento
   </div>
 </div>
+<%= render 'shared/footer' %>
