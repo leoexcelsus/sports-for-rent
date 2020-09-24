@@ -2,7 +2,12 @@
   <div>
     <p id="notice"><%= notice %></p>
 
-    <%= image_tag "bicicleta", style: "height:100px; width:100px" %>
+    <% if @product.photo.attached? %>
+        <%= cl_image_tag @product.photo.key, height: 300, width: 400, crop: :fill %> 
+    <% else %>
+        <%= image_tag "bicicleta", style: "height:300px; width:400px" %>
+    <% end %>
+     
 
     <p>
       <strong>Equipamento:</strong>
