@@ -1,0 +1,23 @@
+<% if current_user.id == @rental.product.user_id  %>
+
+<div class="container justify-content-center col-sm-4">
+    <%= simple_form_for [ @rental ] do |f| %>
+    <%= f.input :renter_review, label: 'Avaliação usuário' %>
+    <%= f.submit "Enviar avaliação", class: "btn btn-primary" %>
+    <% end %>
+</div>
+
+<% elsif current_user.id == @rental.user_id  %>
+
+<div class="container justify-content-center col-sm-4">
+    <%= simple_form_for [ @rental ] do |f| %>
+    <%= f.input :costumer_review, label: 'Avaliação proprietário' %>
+    <%= f.submit "Enviar avaliação", class: "btn btn-primary" %>
+    <% end %>
+</div>
+
+<% else %>
+
+    <p>unautorized</p>
+
+<% end %>

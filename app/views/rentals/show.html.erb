@@ -1,16 +1,16 @@
 <% if current_user.id == @rental.product.user_id || current_user.id == @rental.user_id %>
-
+<div class="container">
     <p id="notice"><%= notice %></p>
 
     <%= image_tag "bicicleta", style: "height:100px; width:100px" %>
 
     <p>
-    <strong>Description:</strong>
+    <strong>Equipamento:</strong>
     <%= @rental.product.description %>
     </p>
 
     <p>
-    <strong>Period:</strong> From 
+    <strong>Período:</strong> From 
     <%= @rental.begin_date %> to <%= @rental.end_date %>
     </p>
 
@@ -20,14 +20,14 @@
     </p>
 
     <p>
-    <strong>Contact Owner:</strong>
+    <strong>Contato proprietário:</strong>
     <%= User.find(@rental.product.user_id).email %>
     </p>
-
+    <%= link_to 'Enviar Avaliação', review_path, class: "btn btn-ghost" %>
+    <%= link_to 'Back', root_path, class: "btn btn-ghost" %>
+</div>
 <% else %>
 
     <p>unautorized</p>
-
+<%= link_to 'Back', root_path, class: "btn btn-ghost" %>
 <% end %>
-
-<%= link_to 'Back', root_path %>
