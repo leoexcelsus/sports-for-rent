@@ -1,31 +1,47 @@
 <div class="container">
+
   <div>
     <p id="notice"><%= notice %></p>
-
-    <%= image_tag "bicicleta", style: "height:100px; width:100px" %>
-
-    <p>
-      <strong>Equipamento:</strong>
-      <%= @product.description %>
-    </p>
-
-    <p>
-      <strong>Endereço:</strong>
-      <%= @product.address %>
-    </p>
-
-    <p>
-      <strong>Preço:</strong>
-      R$ <%= @product.price.to_f/100 %>
-    </p>
-
-    <p>
-      <strong>Usuário:</strong>
-      <%= @product.user.email %>
-    </p>
-
-  <%= link_to 'Rent this product', new_product_rental_path(@product), class: "btn btn-ghost" %>
-  <%= link_to 'Voltar', products_path, class: "btn btn-ghost" %>
   </div>
+
+  <div class="flex-container">
+    <div class="container">
+      <div class="box-product">
+        <div class="img-product">
+          <%= image_tag "bicicleta", style: "height:100px; width:100px" %>
+        </div>
+
+        <div class="container">
+          <p>
+            <strong>Equipamento:</strong>
+            <%= @product.description %>
+          </p>
+
+          <p>
+            <strong>Endereço:</strong>
+            <%= @product.address %>
+          </p>
+
+          <p>
+            <strong>Preço:</strong>
+            R$ <%= @product.price.to_f/100 %>
+          </p>
+
+          <p>
+            <strong>Usuário:</strong>
+            <%= @product.user.email %>
+          </p>
+        </div>
+
+        <div>
+          <%= link_to 'Rent this product', new_product_rental_path(@product), class: "btn btn-ghost" %>
+          <%= link_to 'Voltar', products_path, class: "btn btn-ghost" %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
 </div>
- 
