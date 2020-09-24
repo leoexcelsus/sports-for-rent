@@ -1,0 +1,33 @@
+<% if current_user.id == @rental.product.user_id || current_user.id == @rental.user_id %>
+
+    <p id="notice"><%= notice %></p>
+
+    <%= image_tag "bicicleta", style: "height:100px; width:100px" %>
+
+    <p>
+    <strong>Description:</strong>
+    <%= @rental.product.description %>
+    </p>
+
+    <p>
+    <strong>Period:</strong> From 
+    <%= @rental.begin_date %> to <%= @rental.end_date %>
+    </p>
+
+    <p>
+    <strong>Total:</strong>
+    <%= @rental.rental_price.to_f/100 %>
+    </p>
+
+    <p>
+    <strong>Contact Owner:</strong>
+    <%= User.find(@rental.product.user_id).email %>
+    </p>
+
+<% else %>
+
+    <p>unautorized</p>
+
+<% end %>
+
+<%= link_to 'Back', root_path %>

@@ -6,7 +6,6 @@ class RentalsController < ApplicationController
     
     def create
         @rental = Rental.new(rental_params)
-        # we need `product_id` to associate rental with corresponding product
         @rental.end_date = Date.parse(@rental.end_date.to_s)
         @rental.begin_date = Date.parse(@rental.begin_date.to_s)
         @product = Product.find(params[:product_id])
@@ -14,9 +13,13 @@ class RentalsController < ApplicationController
         @rental.rental_price = ( @rental.end_date - @rental.begin_date ).to_i*@product.price
         @rental.user = current_user
         @rental.save
-        raise
-        redirect_to rental_path(@product)
+        redirect_to rental_path(Rental.last.id)
       end
+
+    def show
+      @rental = Rental.find(params[:id])
+    end
+    
     
       private
     
