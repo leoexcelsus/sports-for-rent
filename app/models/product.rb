@@ -1,5 +1,8 @@
 class Product < ApplicationRecord
   belongs_to :user
   has_many :rentals
-end
 
+  validates :description, presence: true
+  validates :price, presence: true
+  validates :address, presence: true
+end
