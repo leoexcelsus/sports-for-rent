@@ -13,8 +13,7 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
-    # raise
-    @product.price = product_params[:price].to_f * 100
+    @product.price = product_params[:price].to_i * 100
     @product.user = current_user
 
     if @product.save
@@ -35,7 +34,7 @@ class ProductsController < ApplicationController
 
   # Only allow a trusted parameter "white list" through.
   def product_params
-    params.require(:product).permit(:description, :price, :address, :latitude, :longitude)
+    params.require(:product).permit(:description, :price, :address, :latitude, :longitude, :photo)
   end
 
 end

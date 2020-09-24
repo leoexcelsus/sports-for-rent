@@ -4,12 +4,21 @@
     <p id="notice"><%= notice %></p>
   </div>
 
+<<<<<<< HEAD
   <div class="flex-container">
     <div class="container">
       <div class="box-product">
         <div class="img-product">
-          <%= image_tag "bicicleta", style: "height:100px; width:100px" %>
+          <% if @product.photo.attached? %>
+          <%= cl_image_tag @product.photo.key, height: 300, width: 400, crop: :fill %>
+          <% else %>
+          <%= image_tag "bicicleta", style: "height:300px; width:400px" %>
+          <% end %>
         </div>
+=======
+
+
+>>>>>>> master
 
         <div class="container">
           <p>

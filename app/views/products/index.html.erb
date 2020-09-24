@@ -12,8 +12,12 @@
     </div>
     <div class="cards">
     <% @products.each do |product| %>
-      <div class="card-product">
-        <img src="" />
+      <div class="card-product">                
+        <% if product.photo.attached? %>
+          <%= cl_image_tag product.photo.key, height: 75, width: 100, crop: :fill %>
+        <% else %>
+          <%= image_tag "bicicleta", style: "height:75px; width:100px" %> 
+        <% end %>
         <div class="card-product-infos">
           <%= link_to product_path(product) do %>
           <h2><%= product.description %></h2>
