@@ -11,7 +11,7 @@
           <% if @product.photo.attached? %>
           <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path product.photo.key, height: 300, width: 400, crop: :fill %>')">
           <% else %>
-          <%= image_tag "", style: "height:300px; width:400px" %>
+          <%= image_tag "https://res.cloudinary.com/dzml8ygng/image/upload/v1600970816/bicicleta-c255c8fd010a02d89702c6050d626217293e3ed9889eb28e287d16e69917f5d2_ziqhsf.jpg", style: "height:300px; width:400px" %>
           <% end %>
         </div>
 
@@ -44,7 +44,7 @@
       </div>
       <div class="review-container mt-20">
         <table class="table table-borderless">
-          <thead>Comentários
+          <thead class="thead-dark">Comentários
             <tr>
               <th scope="col">Usuário</th>
               <th scope="col">Comentário</th>
