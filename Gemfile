@@ -35,6 +35,9 @@ gem 'cloudinary', '~> 1.16.0'
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'devise'
 
+# Complete geocoding solution for Ruby. (https://github.com/alexreisner/geocoder)
+gem 'geocoder'
+
 group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rails'
