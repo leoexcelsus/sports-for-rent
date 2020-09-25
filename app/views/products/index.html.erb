@@ -12,11 +12,11 @@
     </div>
     <div class="cards">
     <% @products.each do |product| %>
-      <div class="card-product">                
+      <div class="card-product">
         <% if product.photo.attached? %>
           <%= cl_image_tag product.photo.key, height: 75, width: 100, crop: :fill %>
         <% else %>
-          <%= image_tag "https://res.cloudinary.com/dzml8ygng/image/upload/v1600970816/bicicleta-c255c8fd010a02d89702c6050d626217293e3ed9889eb28e287d16e69917f5d2_ziqhsf.jpg", style: "height:75px; width:100px" %> 
+          <%= image_tag "https://res.cloudinary.com/dzml8ygng/image/upload/v1600970816/bicicleta-c255c8fd010a02d89702c6050d626217293e3ed9889eb28e287d16e69917f5d2_ziqhsf.jpg", style: "height:75px; width:100px" %>
         <% end %>
         <div class="card-product-infos">
           <%= link_to product_path(product) do %>
@@ -32,8 +32,11 @@
     </div>
   </div>
   <div class="container col-sm-5">
-    <div id="map">
-      <h2>Mapa</h2>
+    <h2>Mapa</h2>
+    <div id="map"
+     style="width: 100%; height: 600px;"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
   </div>
 </div>

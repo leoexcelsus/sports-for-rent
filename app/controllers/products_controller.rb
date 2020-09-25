@@ -5,6 +5,14 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.all
+
+    # the `geocoded` scope filters only products with coordinates (latitude & longitude)
+    @markers = @products.geocoded.map do |prod|
+      {
+        lat: prod.latitude,
+        lng: prod.longitude
+      }
+    end
   end
 
   def new
