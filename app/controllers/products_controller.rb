@@ -4,14 +4,19 @@ class ProductsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @products = Product.all
 
-    # the `geocoded` scope filters only products with coordinates (latitude & longitude)
-    @markers = @products.geocoded.map do |prod|
-      {
-        lat: prod.latitude,
-        lng: prod.longitude
-      }
+    if params[:query].present?
+      @products = Product.search_by_description(params[:query])
+    else
+      @products = Product.all
+    end
+
+      # the `geocoded` scope filters only products with coordinates (latitude & longitude)
+      @markers = @products.geocoded.map do |prod|
+        {
+          lat: prod.latitude,
+          lng: prod.longitude
+        }
     end
   end
 
@@ -35,6 +40,17 @@ class ProductsController < ApplicationController
     @reviews = {}
     Rental.where(product: @product).each do |x|
       @reviews[x.user_id] = x.costumer_review unless x.costumer_review.nil?
+    end
+  end
+
+  def show_equipaments
+    @products = Product.where(user_id: current_user)
+  end
+
+  def show_rentals_equipaments
+    @products = []
+      Rental.where(user_id: current_user).each do |rental|
+      @products << rental.product
     end
   end
 
