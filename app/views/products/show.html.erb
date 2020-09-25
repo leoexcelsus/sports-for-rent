@@ -36,6 +36,7 @@
         <div>
           <% if @product.user == current_user %>
             <%= link_to 'Editar', edit_product_path(@product), class: "btn btn-ghost" %>
+            <%= link_to 'Remover', product_path(@product), method: :delete, class: "btn btn-ghost" %>
           <% else %>
             <%= link_to 'Alugue este equipamento', new_product_rental_path(@product), class: "btn btn-ghost" %>
           <% end %>
