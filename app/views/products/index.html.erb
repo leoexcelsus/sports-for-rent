@@ -22,7 +22,10 @@
           <%= link_to product_path(product) do %>
           <h2><%= product.description %></h2>
           <% end %>
-          <p>R$ <%= product.price / 100 %>
+          <p>R$ <%= product.price.to_f / 100 %>
+          <% if product.user == current_user %>
+          <p>Seu equipamento</p>
+          <% end %>
         </div>
       </div>
       <% end %>
