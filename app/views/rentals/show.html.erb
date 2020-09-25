@@ -26,16 +26,43 @@
       </p>
 
       <p>
-        <strong>Contato proprietário:</strong>
-        <%= User.find(@rental.product.user_id).email %>
+        <strong>Contato <%= current_user.id == @rental.user_id ? "proprietário" : "usuário" %>:</strong>
+        <%= current_user.id == @rental.user_id ? User.find(@rental.product.user_id).email : User.find(@rental.user_id).email %>
       </p>
     </div>
     <div>
       <%= link_to 'Enviar Avaliação', review_path, class: "btn btn-ghost" %>
       <%= link_to 'Voltar', root_path, class: "btn btn-ghost" %>
+      
     </div>
   </div>
 </div>
+<% if current_user.id == @rental.product.user_id  %>
+    <div class="review-container mt-20">
+
+        <table class="table table-borderless">
+            <thead>Comentários
+            <% if @reviews.size.positive? %>
+                <tr>
+                <th scope="col">Produto</th>
+                <th scope="col">Comentário</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @reviews.keys.each do |prod| %>
+                <tr>
+                <td><%= prod %></td>  
+                <td><%= @reviews[prod] %></td>
+                </tr>
+                <% end %>
+                <% else %>
+                <p>Seja o primeiro a comentar</p>
+                <% end %>
+            </tbody>
+        </table>
+<% end %>            
+            
+    </div>
 <% else %>
     <p>Acesso não autorizado</p>
 <%= link_to 'Voltar', root_path, class: "btn btn-ghost" %>
