@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:show, :edit, :update]
+  before_action :set_product, only: [:show, :edit, :update, :destroy]
 
   skip_before_action :authenticate_user!, only: [:index, :show]
 
@@ -37,6 +37,10 @@ class ProductsController < ApplicationController
   end
 
   def show
+    @reviews = {}
+    Rental.where(product: @product).each do |x|
+      @reviews[x.user_id] = x.costumer_review unless x.costumer_review.nil?
+    end
   end
 
   def show_equipaments
@@ -57,10 +61,15 @@ class ProductsController < ApplicationController
     if @product.update(product_params)
       @product.price = product_params[:price].to_f * 100
       @product.save
-      redirect_to @product, notice: 'Product was successfully updated.'
+      redirect_to @product, notice: 'As informações foram corretamentes editadas'
     else
       render :edit
     end
+  end
+
+  def destroy
+    @product.destroy
+    redirect_to products_url, notice: 'O equipamento foi removido'
   end
 
   private

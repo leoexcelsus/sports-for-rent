@@ -1,7 +1,9 @@
 <div class="container justify-content-center col-sm-6">
   <div class="form-container">
 
+
     <h1>Alterar dados do equipamento</h1>
+
 
     <%= simple_form_for(@product) do |f| %>
     <% @product.price = @product.price.to_f/100 %>

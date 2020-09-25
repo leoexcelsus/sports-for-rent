@@ -17,9 +17,11 @@
       <%= link_to product_path(product) do %>
       <div class="card-product">
         <% if product.photo.attached? %>
+
         <%= cl_image_tag product.photo.key, height: 75, width: 100, crop: :fill %>
         <% else %>
         <%= image_tag "https://res.cloudinary.com/dzml8ygng/image/upload/v1600970816/bicicleta-c255c8fd010a02d89702c6050d626217293e3ed9889eb28e287d16e69917f5d2_ziqhsf.jpg", style: "height:75px; width:100px" %>
+
         <% end %>
         <div class="card-product-infos">
           <h2><%= product.description %></h2>
