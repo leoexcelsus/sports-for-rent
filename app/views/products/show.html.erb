@@ -43,14 +43,29 @@
         </div>
       </div>
       <div class="review-container mt-20">
+
         <table class="table table-borderless">
           <thead>Comentários
-            <tr>
-              <th scope="col">Usuário</th>
-              <th scope="col">Comentário</th>
-            </tr>
-          </thead>
+            <% if @reviews.size.positive? %>
+              <tr>
+                <th scope="col">Usuário</th>
+                <th scope="col">Comentário</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @reviews.keys.each do |user| %>
+                <tr>
+              <td><%= user %></td>  
+              <td><%= @reviews[user] %></td>
+                </tr>
+              <% end %>
+              <% else %>
+                <p>Seja o primeiro a comentar</p>
+              <% end %>
+            </tbody>
         </table>
+        
+          
       </div>
     </div>
     <div class="container col-sm-5">

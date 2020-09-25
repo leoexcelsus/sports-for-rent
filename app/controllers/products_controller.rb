@@ -32,6 +32,10 @@ class ProductsController < ApplicationController
   end
 
   def show
+    @reviews = {}
+    Rental.where(product: @product).each do |x|
+      @reviews[x.user_id] = x.costumer_review unless x.costumer_review.nil?
+    end
   end
 
   def edit
