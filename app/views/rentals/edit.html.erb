@@ -1,23 +1,30 @@
-<% if current_user.id == @rental.product.user_id  %>
+<div class="container justify-content-center">
+  <div class="form-container">
 
-<div class="container justify-content-center col-sm-4">
-    <%= simple_form_for [ @rental ] do |f| %>
-    <%= f.input :renter_review, label: 'Avaliação usuário' %>
-    <%= f.submit "Enviar avaliação", class: "btn btn-primary" %>
+    <% if current_user.id == @rental.product.user_id  %>
+
+    <div class="container justify-content-center col-sm-6">
+      <h3>Avaliação do Usuário</h3>
+        <%= simple_form_for [ @rental ] do |f| %>
+        <%= f.input :renter_review, label: 'Deixe seu comentário' %>
+        <%= f.submit "Enviar avaliação", class: "btn btn-ghost" %>
+        <% end %>
+    </div>
+
+    <% elsif current_user.id == @rental.user_id  %>
+
+    <div class="container justify-content-center col-sm-6">
+      <h3>Avaliação do Proprietário</h3>
+        <%= simple_form_for [ @rental ] do |f| %>
+        <%= f.input :costumer_review, label: 'Deixe seu comentário' %>
+        <%= f.submit "Enviar avaliação", class: "btn btn-ghost" %>
+        <% end %>
+    </div>
+
+    <% else %>
+
+        <p>Não autorizado</p>
+
     <% end %>
+  </div>
 </div>
-
-<% elsif current_user.id == @rental.user_id  %>
-
-<div class="container justify-content-center col-sm-4">
-    <%= simple_form_for [ @rental ] do |f| %>
-    <%= f.input :costumer_review, label: 'Avaliação proprietário' %>
-    <%= f.submit "Enviar avaliação", class: "btn btn-primary" %>
-    <% end %>
-</div>
-
-<% else %>
-
-    <p>unautorized</p>
-
-<% end %>

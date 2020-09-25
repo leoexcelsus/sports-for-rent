@@ -1,33 +1,42 @@
 <% if current_user.id == @rental.product.user_id || current_user.id == @rental.user_id %>
 <div class="container">
+  <div>
     <p id="notice"><%= notice %></p>
+  </div>
 
-    <%= image_tag "https://res.cloudinary.com/dzml8ygng/image/upload/v1600970816/bicicleta-c255c8fd010a02d89702c6050d626217293e3ed9889eb28e287d16e69917f5d2_ziqhsf.jpg", style: "height:100px; width:100px" %>
+  <div class="box-product">
+    <div class="img-product">
+      <%= image_tag "https://res.cloudinary.com/dzml8ygng/image/upload/v1600970816/bicicleta-c255c8fd010a02d89702c6050d626217293e3ed9889eb28e287d16e69917f5d2_ziqhsf.jpg", style: "height:300px; width:400px" %>
+    </div>
 
-    <p>
-    <strong>Equipamento:</strong>
-    <%= @rental.product.description %>
-    </p>
+    <div class="description-container">
+      <p>
+        <strong>Equipamento:</strong>
+        <%= @rental.product.description %>
+      </p>
 
-    <p>
-    <strong>Período:</strong> De 
-    <%= @rental.begin_date.strftime("%d/%m/%Y") %> a <%= @rental.end_date.strftime("%d/%m/%Y") %>
-    </p>
+      <p>
+        <strong>Período:</strong>
+        <%= @rental.begin_date.strftime("%d/%m/%Y") %> a <%= @rental.end_date.strftime("%d/%m/%Y") %>
+      </p>
 
-    <p>
-    <strong>Total:</strong>
-    <%= @rental.rental_price.to_f/100 %>
-    </p>
+      <p>
+        <strong>Total:</strong>
+        R$ <%= @rental.rental_price.to_f/100 %>
+      </p>
 
-    <p>
-    <strong>Contato proprietário:</strong>
-    <%= User.find(@rental.product.user_id).email %>
-    </p>
-    <%= link_to 'Enviar Avaliação', review_path, class: "btn btn-ghost" %>
-    <%= link_to 'Back', root_path, class: "btn btn-ghost" %>
+      <p>
+        <strong>Contato proprietário:</strong>
+        <%= User.find(@rental.product.user_id).email %>
+      </p>
+    </div>
+    <div>
+      <%= link_to 'Enviar Avaliação', review_path, class: "btn btn-ghost" %>
+      <%= link_to 'Voltar', root_path, class: "btn btn-ghost" %>
+    </div>
+  </div>
 </div>
 <% else %>
-
     <p>Acesso não autorizado</p>
-<%= link_to 'Back', root_path, class: "btn btn-ghost" %>
+<%= link_to 'Voltar', root_path, class: "btn btn-ghost" %>
 <% end %>

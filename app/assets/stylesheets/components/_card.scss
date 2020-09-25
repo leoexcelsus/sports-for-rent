@@ -11,39 +11,42 @@
   font-size: 30px;
   font-weight: bold;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
-  border-radius: 5px;
+  border-radius: 10px;
   box-shadow: 0 0 15px rgba(0,0,0,0.6);
 }
 
 .card-product {
   overflow: hidden;
   height: 100px;
-  width: 300px;
+  width: 330px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.1);
   display: flex;
+  border-radius: 10px;
   align-items: center;
-  margin: 20px 10px;
+  margin: 10px 10px;
 }
 
 .card-product img {
   height: 100%;
   width: 120px;
-  object-fit: cover;
+  object-fit: contain;
+  border-radius: 5px;
 }
 
 .card-product h2 {
   font-size: 14px;
   font-weight: bold;
   margin: 0;
+  color: black;
 }
 
 .card-product a {
   color: black;
 }
 
-.card-product a:hover {
-  color: #f4a261;
+.card-product:hover {
+  box-shadow: 0 4px 8px 0 #f4a261;
   text-decoration: none;
 }
 
@@ -53,6 +56,7 @@
   opacity: .7;
   margin-bottom: 0;
   margin-top: 8px;
+  color: black;
 }
 
 .card-product .card-product-infos {
@@ -61,8 +65,7 @@
 
 .cards {
   display: grid;
-  grid-template-columns: 350px 1fr;
-  grid-gap: 10px;
+  grid-template-columns: 50% 50%;
 }
 
 // Smallest device
@@ -96,6 +99,6 @@
 // Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) {
   .cards {
-    grid-template-columns: 350px 1fr;
+    grid-template-columns: 1fr 1fr;
   }
 }
