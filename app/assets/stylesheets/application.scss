@@ -18,18 +18,6 @@
   margin: 20px;
 }
 
-.map {
-  background-color: grey;
-  justify-content: center;
-  height: 430px;
-  margin: 0px;
-}
-
-.map h2 {
-  text-align: center;
-  color: black;
-}
-
 .form-container {
   padding: 30px;
 }
@@ -60,11 +48,17 @@
 
 #content-wrap {
   padding-bottom: 0.5rem;    /* Footer height */
+  position: relative;
 }
 
-#footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 2.5rem;            /* Footer height */
+.box-search {
+  margin-bottom: 10px;
 }
+
+// #footer {
+//   position: absolute;
+//   bottom: 0;
+//   width: 100%;
+//   height: 2.5rem;            /* Footer height */
+// }
+
