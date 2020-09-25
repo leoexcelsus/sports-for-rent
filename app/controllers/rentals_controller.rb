@@ -22,6 +22,11 @@ class RentalsController < ApplicationController
 
     def show
       @rental = Rental.find(params[:id])
+      @reviews = {}
+      Rental.where(user_id: @rental.user_id).each do |x|
+        @reviews[x.product.description] = x.renter_review unless x.renter_review.nil?
+      end
+    
     end
 
     def edit
