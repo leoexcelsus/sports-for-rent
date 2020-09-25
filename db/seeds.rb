@@ -121,77 +121,77 @@ product10.save!
 
 puts "... 10 products created"
 
-# puts "... creating 5 rentals and assigning their products and customers"
+puts "... creating 5 rentals and assigning their products and customers"
 
-# rental1 = Rental.new(
-#   begin_date: Date.strptime('02/09/2020', '%d/%m/%Y'),
-#   end_date: Date.strptime('12/09/2020', '%d/%m/%Y'),
-#   rental_price: 13000,
-#   costumer_review: 'Bike muito leve e bem regulada. Foi bem divertido poder treinar em Brasília na minha viagem de negócios. Recomendo o produto.',
-#   renter_review: 'Usuário sem zelo. Devolveu o equipamento todo sujo.',
-#   )
-# rental1.product_id = product1.id
-# rental1.user_id = user3.id
+rental1 = Rental.new(
+  begin_date: Date.strptime('02/09/2020', '%d/%m/%Y'),
+  end_date: Date.strptime('12/09/2020', '%d/%m/%Y'),
+  rental_price: 13000,
+  costumer_review: 'Bike muito leve e bem regulada. Foi bem divertido poder treinar em Brasília na minha viagem de negócios. Recomendo o produto.',
+  renter_review: 'Usuário sem zelo. Devolveu o equipamento todo sujo.',
+  )
+rental1.product_id = product1.id
+rental1.user_id = user3.id
 
-# rental2 = Rental.new(
-#   begin_date: Date.strptime('12/06/2020', '%d/%m/%Y'),
-#   end_date: Date.strptime('14/06/2020', '%d/%m/%Y'),
-#   rental_price: 19000,
-#   costumer_review: 'Aluguei o equipamento, mas não consegui usar de fato, mas parecia tudo em ordem.',
-#   renter_review: 'O usuário é nota 10. Devolveu o equipamento em perfeitas condições.',
-#   )
-# rental2.product_id = product4.id
-# rental2.user_id = user4.id
+rental2 = Rental.new(
+  begin_date: Date.strptime('12/06/2020', '%d/%m/%Y'),
+  end_date: Date.strptime('14/06/2020', '%d/%m/%Y'),
+  rental_price: 19000,
+  costumer_review: 'Aluguei o equipamento, mas não consegui usar de fato, mas parecia tudo em ordem.',
+  renter_review: 'O usuário é nota 10. Devolveu o equipamento em perfeitas condições.',
+  )
+rental2.product_id = product4.id
+rental2.user_id = user4.id
 
-# rental3 = Rental.new(
-#   begin_date: Date.strptime('25/09/2020', '%d/%m/%Y'),
-#   end_date: Date.strptime('28/09/2020', '%d/%m/%Y'),
-#   rental_price: 5000,
-#   costumer_review: '',
-#   renter_review: '',
-#   )
-# rental3.product_id = product5.id
-# rental3.user_id = user5.id
+rental3 = Rental.new(
+  begin_date: Date.strptime('25/09/2020', '%d/%m/%Y'),
+  end_date: Date.strptime('28/09/2020', '%d/%m/%Y'),
+  rental_price: 5000,
+  costumer_review: '',
+  renter_review: '',
+  )
+rental3.product_id = product5.id
+rental3.user_id = user5.id
 
-# rental4 = Rental.new(
-#   begin_date: Date.strptime('20/09/2020', '%d/%m/%Y'),
-#   end_date: Date.strptime('22/09/2020', '%d/%m/%Y'),
-#   rental_price: 3500,
-#   costumer_review: 'Muito boas as raquetes. E o preço está muito barato!',
-#   renter_review: 'Está mesmo muito barato! Vou subir um pouco o preço.',
-#   )
-# rental4.product_id = product3.id
-# rental4.user_id = user6.id
+rental4 = Rental.new(
+  begin_date: Date.strptime('20/09/2020', '%d/%m/%Y'),
+  end_date: Date.strptime('22/09/2020', '%d/%m/%Y'),
+  rental_price: 3500,
+  costumer_review: 'Muito boas as raquetes. E o preço está muito barato!',
+  renter_review: 'Está mesmo muito barato! Vou subir um pouco o preço.',
+  )
+rental4.product_id = product3.id
+rental4.user_id = user6.id
 
-# rental5 = Rental.new(
-#   begin_date: Date.strptime('23/09/2020', '%d/%m/%Y'),
-#   end_date: Date.strptime('30/09/2020', '%d/%m/%Y'),
-#   rental_price: 3500,
-#   costumer_review: '',
-#   renter_review: '',
-#   )
-# rental5.product_id = product10.id
-# rental5.user_id = user1.id
+rental5 = Rental.new(
+  begin_date: Date.strptime('23/09/2020', '%d/%m/%Y'),
+  end_date: Date.strptime('30/09/2020', '%d/%m/%Y'),
+  rental_price: 3500,
+  costumer_review: '',
+  renter_review: '',
+  )
+rental5.product_id = product10.id
+rental5.user_id = user1.id
 
-# rental6 = Rental.new(
-#   begin_date: Date.strptime('20/09/2020', '%d/%m/%Y'),
-#   end_date: Date.strptime('22/09/2020', '%d/%m/%Y'),
-#   rental_price: 3500,
-#   costumer_review: 'O kaiak estava em ordem e bem higienizado. Nota 10!',
-#   renter_review: 'Cliente cuidadoso e educado. Indico a todos.',
-#   )
-# rental6.product_id = product6.id
-# rental6.user_id = user2.id
+rental6 = Rental.new(
+  begin_date: Date.strptime('20/09/2020', '%d/%m/%Y'),
+  end_date: Date.strptime('22/09/2020', '%d/%m/%Y'),
+  rental_price: 3500,
+  costumer_review: 'O kaiak estava em ordem e bem higienizado. Nota 10!',
+  renter_review: 'Cliente cuidadoso e educado. Indico a todos.',
+  )
+rental6.product_id = product6.id
+rental6.user_id = user2.id
 
-# puts "... saving to database ..."
+puts "... saving to database ..."
 
-# rental1.save!
-# rental2.save!
-# rental3.save!
-# rental4.save!
-# rental5.save!
-# rental6.save!
+rental1.save(validate: false)
+rental2.save(validate: false)
+rental3.save(validate: false)
+rental4.save(validate: false)
+rental5.save(validate: false)
+rental6.save(validate: false)
 
-# puts "... 6 rentals created"
+puts "... 6 rentals created"
 
 puts "Seeding is done!"
