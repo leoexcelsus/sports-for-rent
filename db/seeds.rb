@@ -30,7 +30,7 @@ puts "creating 10 products and assiging it's owners ..."
 product1 = Product.new(
   description: 'Bicicleta Trek para triathlon',
   price: 12000,
-  address: 'SQS 102, Bl. D, apto. 405, Asa Sul. Brasília-DF')
+  address: 'SQS 102, Asa Sul. Brasília-DF')
 product1.user = user1
 file1 = URI.open('https://res.cloudinary.com/dtn9yb79g/image/upload/v1601059974/Bicicleta_Trek_para_triathlon_bwmpju.jpg')
 product1.photo.attach(io: file1, filename: 'Bicicleta_Trek_para_triathlon.jpg', content_type: 'image/jpg')
@@ -38,7 +38,7 @@ product1.photo.attach(io: file1, filename: 'Bicicleta_Trek_para_triathlon.jpg', 
 product2 = Product.new(
   description: 'Skate elétrico Cruiser',
   price: 11000,
-  address: 'SQN 311, Bl. H, apto. 101, Asa Norte. Brasília-DF')
+  address: 'SQN 311, Asa Norte. Brasília-DF')
 product2.user = user2
 file2 = URI.open('https://res.cloudinary.com/dtn9yb79g/image/upload/v1601060216/Skate_el%C3%A9trico_Cruiser_elmmva.webp')
 product2.photo.attach(io: file2, filename: 'Skate_elétrico_Cruiser.jpg', content_type: 'image/jpg')
@@ -46,7 +46,7 @@ product2.photo.attach(io: file2, filename: 'Skate_elétrico_Cruiser.jpg', conten
 product3 = Product.new(
   description: 'Raquete de Tenis Wilson',
   price: 3500,
-  address: 'SQN 313, Bl. H, apto. 101, Asa Norte. Brasília-DF')
+  address: 'SQN 313, Asa Norte. Brasília-DF')
 product3.user = user2
 file3 = URI.open('https://res.cloudinary.com/dtn9yb79g/image/upload/v1601060339/Raquete_de_Tenis_Wilson_n40oor.jpg')
 product3.photo.attach(io: file3, filename: 'Raquete_de_Tenis_Wilson.jpg', content_type: 'image/jpg')
@@ -55,7 +55,7 @@ product3.photo.attach(io: file3, filename: 'Raquete_de_Tenis_Wilson.jpg', conten
 product4 = Product.new(
   description: 'Kit de mergulho profissional',
   price: 20000,
-  address: 'Península dos Ministros, Lago Sul. Brasília-DF')
+  address: 'SHIS QL 12, Lago Sul, Brasília')
 product4.user = user3
 file4 = URI.open('https://res.cloudinary.com/dtn9yb79g/image/upload/v1601060441/Kit_de_Mergulho_Profissional_acdpua.jpg')
 product4.photo.attach(io: file4, filename: 'Kit_de_mergulho_profissional.jpg', content_type: 'image/jpg')
@@ -63,7 +63,7 @@ product4.photo.attach(io: file4, filename: 'Kit_de_mergulho_profissional.jpg', c
 product5 = Product.new(
   description: 'Bicicleta Trek',
   price: 11000,
-  address: 'QI 23, conj. C, casa 12, Lago Sul. Brasília-DF')
+  address: 'SHIS QI 23 Conjunto 10, SMDB Conjunto 25, Lago Sul')
 product5.user = user4
 file5 = URI.open('https://res.cloudinary.com/dtn9yb79g/image/upload/v1601060534/Bicicleta_Trek_ykqc2q.jpg')
 product5.photo.attach(io: file5, filename: 'Bicicleta_Trek.jpg', content_type: 'image/jpg')
@@ -71,7 +71,7 @@ product5.photo.attach(io: file5, filename: 'Bicicleta_Trek.jpg', content_type: '
 product6 = Product.new(
   description: 'Kayak Thork',
   price: 9999,
-  address: 'QI 23, conj. C, casa 12, Lago Sul. Brasília-DF')
+  address: 'SHIS QI 23 Conjunto 10, SMDB Conjunto 25, Lago Sul')
 product6.user = user4
 file6 = URI.open('https://res.cloudinary.com/dtn9yb79g/image/upload/v1601060618/Kayak_Thork_qrm9fn.jpg')
 product6.photo.attach(io: file6, filename: 'Kayak_Thork.jpg', content_type: 'image/jpg')
@@ -79,7 +79,7 @@ product6.photo.attach(io: file6, filename: 'Kayak_Thork.jpg', content_type: 'ima
 product7 = Product.new(
   description: 'Prancha de StandUp Pedal',
   price: 4000,
-  address: 'Quadra 6, Conj. C, número 167, Sobradinho. Brasília-DF')
+  address: 'Quadra 6, Sobradinho. Brasília-DF')
 product7.user = user5
 file7 = URI.open('https://res.cloudinary.com/dtn9yb79g/image/upload/v1601060729/Prancha_de_StandUp_Pedal_pqtqr9.jpg')
 product7.photo.attach(io: file7, filename: 'Prancha_de_StandUp_Pedal.jpg', content_type: 'image/jpg')
@@ -87,7 +87,7 @@ product7.photo.attach(io: file7, filename: 'Prancha_de_StandUp_Pedal.jpg', conte
 product8 = Product.new(
   description: 'Raquete em excelente estado',
   price: 2500,
-  address: 'Quadra 6, Conj. C, número 167, Sobradinho. Brasília-DF')
+  address: 'Quadra 6, Sobradinho. Brasília-DF')
 product8.user = user5
 file8 = URI.open('https://res.cloudinary.com/dtn9yb79g/image/upload/v1601060915/Raquete_em_excelente_estado_odmzbv.jpg')
 product8.photo.attach(io: file8, filename: 'Raquete_em_excelente_estado.jpg', content_type: 'image/jpg')
@@ -95,13 +95,13 @@ product8.photo.attach(io: file8, filename: 'Raquete_em_excelente_estado.jpg', co
 product9 = Product.new(
   description: 'Bike para triahlon',
   price: 9750,
-  address: 'Avenida Flamboyant, 306, apto 1001, Águas Claras. Brasília-DF')
+  address: 'Avenida Flamboyant, 106, Águas Claras. Brasília-DF')
 product9.user = user6
 
 product10 = Product.new(
   description: 'Prancha - StandUp Pedal',
   price: 5000,
-  address: 'Avenida Flamboyant, 306, apto 1001, Águas Claras. Brasília-DF')
+  address: 'Avenida Flamboyant, 106, Águas Claras. Brasília-DF')
 product10.user = user6
 file10 = URI.open('https://res.cloudinary.com/dtn9yb79g/image/upload/v1601061045/Prancha_-_StandUp_Pedal_zvzflk.jpg')
 product10.photo.attach(io: file10, filename: 'Prancha_-_StandUp_Pedal.jpg', content_type: 'image/jpg')
