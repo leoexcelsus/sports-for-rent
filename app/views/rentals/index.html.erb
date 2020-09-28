@@ -1,39 +1,5 @@
 <div class="review-container mt-20">
   <div class="container col-sm-8">
-        <table class="table table-borderless">
-
-          <div class="title">Equipamentos alugados para você</div>
-          <thead class="thead-dark">
-            <% if @rental_user.size.positive? %>
-              <tr>
-                <th scope="col">Produto</th>
-                <th scope="col">Usuário</th>
-                <th scope="col">Período</th>
-                <th scope="col">Valor do aluguel</th>
-                <th scope="col">Comentar</th>
-              </tr>
-            </thead>
-            <tbody>
-              <% @rental_user.each do |rental| %>
-                <tr>
-              <td><%= rental.product.description %></td>
-              <td><%= rental.user_id %></td>
-              <td><%= rental.begin_date %> a <%= rental.end_date %></td>
-              <td> R$ <%= "%.2f" % (rental.rental_price.to_f/100) %></td>
-              <td><%= link_to "Link", rental_path(rental.id) %></td>
-                </tr>
-              <% end %>
-              <% else %>
-                <p><%= link_to "Alugue um equipamento", products_path %></p>
-              <% end %>
-            </tbody>
-
-        </table>
-  </div>
-</div>
-
-<div class="review-container mt-20">
-  <div class="container col-sm-8">
 
     <table class="table table-borderless">
 
@@ -70,5 +36,4 @@
       <p class="sub-title">R$ <%= "%.2f" % (receita_total.to_f/100)  %></p>
     </div>
   </div>
-
 </div>
