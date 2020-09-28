@@ -17,11 +17,11 @@
             <tbody>
               <% @rental_user.each do |rental| %>
                 <tr>
-              <td><%= rental.product.description %></td>  
-              <td><%= rental.user_id %></td>  
+              <td><%= rental.product.description %></td>
+              <td><%= rental.user_id %></td>
               <td><%= rental.begin_date %> a <%= rental.end_date %></td>
               <td> R$ <%= "%.2f" % (rental.rental_price.to_f/100) %></td>
-              <td><%= link_to "Link", rental_path(rental.id) %></td>
+              <td><%= link_to "Deixe seu comentário", rental_path(rental.id) %></td>
                 </tr>
               <% end %>
               <% else %>
@@ -30,8 +30,8 @@
             </tbody>
 
         </table>
-        
-          
+
+
       </div>
 
 <div class="review-container mt-20">
@@ -52,8 +52,8 @@
         <% receita_total = 0 %>
             <% @rental_owner.each do |rental| %>
             <tr>
-            <td><%= rental.product.description %></td>  
-            <td><%= rental.user_id %></td>  
+            <td><%= rental.product.description %></td>
+            <td><%= rental.user_id %></td>
             <td><%= rental.begin_date %> a <%= rental.end_date %></td>
             <td> R$ <%= "%.2f" % (rental.rental_price.to_f / 100) %></td>
             <% receita_total += rental.rental_price %>
@@ -67,8 +67,8 @@
 
     </table>
     <p>Receita total com aluguéis: R$ <%= "%.2f" % (receita_total.to_f/100)  %></p>
-    
-    
-        
-          
+
+
+
+
 </div>

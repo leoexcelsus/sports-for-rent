@@ -28,7 +28,9 @@
   <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1569074187119-c87815b476da?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=625&q=80)">Abra sua conta</div>
   <% end %>
   <% else %>
-  <div class="card-category" style="background-image: linear-gradient(rgba(235,235,235,0.1), rgba(80,80,80,0.1)), url(https://images.unsplash.com/photo-1569074187119-c87815b476da?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=625&q=80)">Abra sua conta</div>
+  <%= link_to rental_list_path do %>
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1569074187119-c87815b476da?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=625&q=80)">Listar Aluguéis</div>
+  <% end %>
   <% end %>
   <% if @user == current_user %>
   <%= link_to new_user_session_path do %>
