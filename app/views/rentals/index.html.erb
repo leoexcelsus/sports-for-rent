@@ -1,10 +1,9 @@
-
-
 <div class="review-container mt-20">
-
+  <div class="container col-sm-8">
         <table class="table table-borderless">
 
-          <thead class="thead-dark">Equipamentos alugados para você
+          <div class="title">Equipamentos alugados para você</div>
+          <thead class="thead-dark">
             <% if @rental_user.size.positive? %>
               <tr>
                 <th scope="col">Produto</th>
@@ -17,8 +16,8 @@
             <tbody>
               <% @rental_user.each do |rental| %>
                 <tr>
-              <td><%= rental.product.description %></td>  
-              <td><%= rental.user_id %></td>  
+              <td><%= rental.product.description %></td>
+              <td><%= rental.user_id %></td>
               <td><%= rental.begin_date %> a <%= rental.end_date %></td>
               <td> R$ <%= "%.2f" % (rental.rental_price.to_f/100) %></td>
               <td><%= link_to "Link", rental_path(rental.id) %></td>
@@ -30,15 +29,16 @@
             </tbody>
 
         </table>
-        
-          
-      </div>
+  </div>
+</div>
 
 <div class="review-container mt-20">
+  <div class="container col-sm-8">
 
     <table class="table table-borderless">
 
-        <thead class="thead-dark">Equipamentos alugados por você
+        <div class="title">Equipamentos alugados por você</div>
+        <thead class="thead-dark">
         <% if @rental_owner.size.positive? %>
             <tr>
             <th scope="col">Produto</th>
@@ -52,8 +52,8 @@
         <% receita_total = 0 %>
             <% @rental_owner.each do |rental| %>
             <tr>
-            <td><%= rental.product.description %></td>  
-            <td><%= rental.user_id %></td>  
+            <td><%= rental.product.description %></td>
+            <td><%= rental.user_id %></td>
             <td><%= rental.begin_date %> a <%= rental.end_date %></td>
             <td> R$ <%= "%.2f" % (rental.rental_price.to_f / 100) %></td>
             <% receita_total += rental.rental_price %>
@@ -61,14 +61,14 @@
             </tr>
             <% end %>
             <% else %>
-            <p><%= link_to "Disponibilize seu equipamento", new_product_path %></p>
+            <p><%= link_to "Disponibilize seu equipamento", new_product_path, class: "btn btn-ghost" %></p>
             <% end %>
         </tbody>
 
     </table>
-    <p>Receita total com aluguéis: R$ <%= "%.2f" % (receita_total.to_f/100)  %></p>
-    
-    
-        
-          
+    <div class="title">Receita total com aluguéis:
+      <p class="sub-title">R$ <%= "%.2f" % (receita_total.to_f/100)  %></p>
+    </div>
+  </div>
+
 </div>
