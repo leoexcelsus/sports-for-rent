@@ -26,9 +26,11 @@ require("channels")
 import "bootstrap";
 
 import { initMapbox } from '../plugins/init_mapbox';
+import { initMapboxForOne } from '../plugins/init_mapboxforone';
 
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
+  initMapboxForOne();
 });
 
 // Internal imports, e.g:
