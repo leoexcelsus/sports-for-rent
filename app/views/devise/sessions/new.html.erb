@@ -1,6 +1,6 @@
 <div class="container justify-content-center col-sm-4">
   <div class="form-container">
-    <h2>Login</h2>
+    <h2>Entrar na sua conta</h2>
 
     <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="form-inputs">
@@ -8,14 +8,14 @@
                     required: false,
                     autofocus: true,
                     input_html: { autocomplete: "e-mail" } %>
-        <%= f.input :password,
+        <%= f.input :password, label: "Senha",
                     required: false,
                     input_html: { autocomplete: "senha atual" } %>
-        <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+        <%= f.input :remember_me, as: :boolean, label: "Me lembre" if devise_mapping.rememberable? %>
       </div>
 
       <div class="form-actions">
-        <%= f.button :submit, "Login", class: "btn btn-ghost" %>
+        <%= f.button :submit, "Entre na sua conta", class: "btn btn-ghost" %>
       </div>
     <% end %>
     <%= render "devise/shared/links" %>
