@@ -26,7 +26,7 @@ class RentalsController < ApplicationController
       Rental.where(user_id: @rental.user_id).each do |x|
         @reviews[x.product.description] = x.renter_review unless x.renter_review.nil?
       end
-    
+
     end
 
     def edit
@@ -42,7 +42,7 @@ class RentalsController < ApplicationController
 
     def index
       @rental_user = Rental.where(user_id: current_user)
-      
+
       rental_products = []
       rental_products = Product.where(user_id: current_user)
       @rental_owner = []
@@ -52,10 +52,10 @@ class RentalsController < ApplicationController
       @rental_owner = @rental_owner.flatten.map { |rental| rental.id}
       @rental_owner.sort!
       @rental_owner = @rental_owner.map { |id| Rental.find(id) }
-      
+
 
     end
-    
+
 
       private
 

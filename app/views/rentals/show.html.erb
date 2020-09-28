@@ -37,7 +37,7 @@
     <div>
       <%= link_to 'Enviar Avaliação', review_path, class: "btn btn-ghost" %>
       <%= link_to 'Voltar', root_path, class: "btn btn-ghost" %>
-      
+
     </div>
   </div>
 </div>
@@ -55,17 +55,17 @@
             <tbody>
                 <% @reviews.keys.each do |prod| %>
                 <tr>
-                <td><%= prod %></td>  
+                <td><%= prod %></td>
                 <td><%= @reviews[prod] %></td>
                 </tr>
                 <% end %>
                 <% else %>
-                <p>Seja o primeiro a comentar</p>
+                <p class="title">Seja o primeiro a comentar</p>
                 <% end %>
             </tbody>
         </table>
-<% end %>            
-            
+<% end %>
+
     </div>
 <% else %>
     <p>Acesso não autorizado</p>
