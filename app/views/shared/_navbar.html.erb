@@ -26,7 +26,8 @@
           <%= image_tag "", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <%= link_to "Incluir Equipamento", new_product_path, class: "dropdown-item" %>
-            <%= link_to "Meus Equipamentos", products_path(@user), class: "dropdown-item" %>
+            <%= link_to "Meus Equipamentos", products_user_path, class: "dropdown-item" %>
+            <%= link_to "Meus Equipamentos Alugados", renteds_user_path, class: "dropdown-item" %>
             <%= link_to "Deslogar", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
         </li>

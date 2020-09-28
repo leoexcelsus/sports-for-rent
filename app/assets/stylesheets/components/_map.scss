@@ -1,3 +1,4 @@
+
 .mapboxgl-popup {
   max-width: 200px;
 }
@@ -12,3 +13,11 @@
   opacity: 0.8;
   font-weight: 800;
 }
+
+#map {
+  border-radius: 10px;
+  position: absolute;
+  height: 100vh;
+}
+
+
