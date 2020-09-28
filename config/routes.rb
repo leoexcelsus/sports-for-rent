@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   get    "rentals/:id",                         to: "rentals#show", as: :rental
   get    "rentals/:id/edit/",                   to: "rentals#edit", as: :review 
   patch  "rentals/:id/",                        to: "rentals#update"
+  get    "rentals_list/",                       to: "rentals#index", as: :rental_list 
 end

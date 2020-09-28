@@ -40,6 +40,22 @@ class RentalsController < ApplicationController
 
     end
 
+    def index
+      @rental_user = Rental.where(user_id: current_user).map { |rental| rental.id}
+      
+      rental_products = []
+      rental_products = Product.where(user_id: current_user)
+      @rental_owner = []
+      rental_products.each do |product|
+        @rental_owner << Rental.where(product: product)
+      end
+      @rental_owner = @rental_owner.flatten.map { |rental| rental.id}
+      @rental_owner.sort!
+      
+
+    end
+    
+
       private
 
       def rental_params

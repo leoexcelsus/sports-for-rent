@@ -1,0 +1,9 @@
+<% @rental_user.each do |id| %>
+<%= id %>
+<%= link_to "Aluguel - #{id}", rental_path(id) %>
+<% end %>
+<p>Owner</p>
+<% @rental_owner.each do |id| %>
+<%= link_to "Aluguel - #{id}", rental_path(id) %> 
+<% end %>
+
