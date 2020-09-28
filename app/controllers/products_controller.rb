@@ -5,18 +5,20 @@ class ProductsController < ApplicationController
 
   def index
 
-    if params[:query].present?
+     if params[:query].present?
       @products = Product.search_by_description(params[:query])
     else
       @products = Product.all
     end
 
-      # the `geocoded` scope filters only products with coordinates (latitude & longitude)
-      @markers = @products.geocoded.map do |prod|
-        {
-          lat: prod.latitude,
-          lng: prod.longitude
-        }
+    # the `geocoded` scope filters only products with coordinates (latitude & longitude)
+    @markers = @products.geocoded.map do |prod|
+      {
+        lat: prod.latitude,
+        lng: prod.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { prod: prod })
+      }
+
     end
   end
 
