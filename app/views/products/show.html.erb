@@ -47,7 +47,7 @@
 
         <table class="table table-borderless">
 
-          <thead class="thead-dark">Comentários
+          <thead class="thead-dark">
             <% if @reviews.size.positive? %>
               <tr>
                 <th scope="col">Usuário</th>
@@ -57,7 +57,7 @@
             <tbody>
               <% @reviews.keys.each do |user| %>
                 <tr>
-              <td><%= user %></td>  
+              <td><%= user %></td>
               <td><%= @reviews[user] %></td>
                 </tr>
               <% end %>
@@ -67,8 +67,8 @@
             </tbody>
 
         </table>
-        
-          
+
+
       </div>
     </div>
     <div class="container col-sm-5">

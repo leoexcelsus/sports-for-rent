@@ -15,12 +15,12 @@
   <body>
     <%= render 'shared/navbar' %>
     <div id="page-container">
-     <div id="content-wrap">
-      <%= yield %>
-      <%= render 'shared/flashes' %>
-     </div>
-   </div>
-  <%= render 'shared/footer' %>
+      <div id="content-wrap">
+        <%= render 'shared/flashes' %>
+        <%= yield %>
+      </div>
+    </div>
+    <%= render 'shared/footer' %>
   </body>
 </html>
 
