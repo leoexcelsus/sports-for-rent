@@ -1,11 +1,24 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1541625602330-2277a4c46182?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80);">
+<div class="banner d-flex col-sm-12" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1541625602330-2277a4c46182?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80);">
   <div class="container">
-    <div class="col-sm-4 pl-0">
+    <div class="col-lg-5 pl-100">
       <h1>Proposition <strong>value</strong></h1>
       <p>Pratique um novo esporte todos os dias. Encontre qualquer equipamento perto de você.</p>
     </div>
-    <div>
+    <div class="col-lg-5 pl-100">
       <a class="btn btn-info" href="#">Explore a Região</a>
+    </div>
+  </div>
+  <div class="box-search col-sm-4">
+    <div>
+      <%= form_tag products_path, method: :get do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Encontre um equipamento"
+      %>
+      <p></p>
+      <%= submit_tag "Buscar", class: "btn btn-info" %>
+      <% end %>
     </div>
   </div>
 </div>
@@ -28,5 +41,4 @@
   <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1495555687398-3f50d6e79e1e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80)">Alugue seu equipamento</div>
   <% end %>
   <% end %>
-  </div>
 </div>

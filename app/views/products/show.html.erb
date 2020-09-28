@@ -9,9 +9,9 @@
       <div class="box-product">
         <div class="img-product">
           <% if @product.photo.attached? %>
-          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path product.photo.key, height: 300, width: 400, crop: :fill %>')">
+          <%= cl_image_tag @product.photo.key, height: 300, width: 400, crop: :fill %>
           <% else %>
-          <%= image_tag "", style: "height:300px; width:400px" %>
+          <%= image_tag "https://res.cloudinary.com/dzml8ygng/image/upload/v1600970816/bicicleta-c255c8fd010a02d89702c6050d626217293e3ed9889eb28e287d16e69917f5d2_ziqhsf.jpg", style: "height:300px; width:400px" %>
           <% end %>
         </div>
 
@@ -25,8 +25,8 @@
             <%= @product.address %>
           </p>
           <p>
-            <strong>Preço:</strong>
-            R$ <%= @product.price.to_f/100 %>
+            <strong>Preço por dia:</strong>
+            R$ <%= "%.2f" % (@product.price.to_f/100) %>
           </p>
           <p>
             <strong>Usuário:</strong>
@@ -36,6 +36,7 @@
         <div>
           <% if @product.user == current_user %>
             <%= link_to 'Editar', edit_product_path(@product), class: "btn btn-ghost" %>
+            <%= link_to 'Remover', product_path(@product), method: :delete, class: "btn btn-ghost", data: {confirm: "Você realmente deseja remover o equipamento?"} %>
           <% else %>
             <%= link_to 'Alugue este equipamento', new_product_rental_path(@product), class: "btn btn-ghost" %>
           <% end %>
@@ -45,7 +46,8 @@
       <div class="review-container mt-20">
 
         <table class="table table-borderless">
-          <thead>Comentários
+
+          <thead class="thead-dark">Comentários
             <% if @reviews.size.positive? %>
               <tr>
                 <th scope="col">Usuário</th>
@@ -63,6 +65,7 @@
                 <p>Seja o primeiro a comentar</p>
               <% end %>
             </tbody>
+
         </table>
         
           

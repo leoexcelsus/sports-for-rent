@@ -38,6 +38,9 @@ gem 'devise'
 # Complete geocoding solution for Ruby. (https://github.com/alexreisner/geocoder)
 gem 'geocoder'
 
+# Solution to implement search in the application
+gem 'pg_search', '~> 2.3.0'
+
 group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rails'

@@ -1,17 +1,24 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:show, :edit, :update]
+  before_action :set_product, only: [:show, :edit, :update, :destroy]
 
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @products = Product.all
+
+     if params[:query].present?
+      @products = Product.search_by_description(params[:query])
+    else
+      @products = Product.all
+    end
 
     # the `geocoded` scope filters only products with coordinates (latitude & longitude)
     @markers = @products.geocoded.map do |prod|
       {
         lat: prod.latitude,
-        lng: prod.longitude
+        lng: prod.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { prod: prod })
       }
+
     end
   end
 
@@ -38,6 +45,17 @@ class ProductsController < ApplicationController
     end
   end
 
+  def show_equipaments
+    @products = Product.where(user_id: current_user)
+  end
+
+  def show_rentals_equipaments
+    @products = []
+      Rental.where(user_id: current_user).each do |rental|
+      @products << rental.product
+    end
+  end
+
   def edit
   end
 
@@ -45,10 +63,15 @@ class ProductsController < ApplicationController
     if @product.update(product_params)
       @product.price = product_params[:price].to_f * 100
       @product.save
-      redirect_to @product, notice: 'Product was successfully updated.'
+      redirect_to @product, notice: 'As informações foram corretamentes editadas'
     else
       render :edit
     end
+  end
+
+  def destroy
+    @product.destroy
+    redirect_to products_url, notice: 'O equipamento foi removido'
   end
 
   private
