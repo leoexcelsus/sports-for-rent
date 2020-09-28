@@ -43,6 +43,11 @@ class ProductsController < ApplicationController
     Rental.where(product: @product).each do |x|
       @reviews[x.user_id] = x.costumer_review unless x.costumer_review.nil?
     end
+    @marker = {
+        lat: @product.latitude,
+        lng: @product.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { prod: @product })
+      }
   end
 
   def show_equipaments

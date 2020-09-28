@@ -57,7 +57,7 @@
             <tbody>
               <% @reviews.keys.each do |user| %>
                 <tr>
-              <td><%= user %></td>  
+              <td><%= user %></td>
               <td><%= @reviews[user] %></td>
                 </tr>
               <% end %>
@@ -67,13 +67,15 @@
             </tbody>
 
         </table>
-        
-          
+
+
       </div>
     </div>
     <div class="container col-sm-5">
-      <div class="map">
-        Mapa
+      <div class="map" id="mapForOne"
+      style="width: 100%; height: 600px;"
+      data-markers="<%= @marker.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
       </div>
     </div>
   </div>
