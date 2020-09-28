@@ -25,7 +25,7 @@
         <% end %>
         <div class="card-product-infos">
           <h2><%= product.description %></h2>
-          <p>R$ <%= product.price.to_f / 100 %>
+          <p>R$ <%= "%.2f" % (product.price.to_f / 100) %> ao dia</p>
         </div>
       </div>
       <% end %>

@@ -25,8 +25,8 @@
             <%= @product.address %>
           </p>
           <p>
-            <strong>Preço:</strong>
-            R$ <%= @product.price.to_f/100 %>
+            <strong>Preço por dia:</strong>
+            R$ <%= "%.2f" % (@product.price.to_f/100) %>
           </p>
           <p>
             <strong>Usuário:</strong>

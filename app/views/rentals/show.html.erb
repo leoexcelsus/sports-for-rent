@@ -26,7 +26,7 @@
 
       <p>
         <strong>Total:</strong>
-        R$ <%= @rental.rental_price.to_f/100 %>
+        R$ <%= "%.2f" % (@rental.rental_price.to_f/100) %>
       </p>
 
       <p>

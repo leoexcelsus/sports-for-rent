@@ -1,0 +1,74 @@
+
+
+<div class="review-container mt-20">
+
+        <table class="table table-borderless">
+
+          <thead class="thead-dark">Equipamentos alugados para você
+            <% if @rental_user.size.positive? %>
+              <tr>
+                <th scope="col">Produto</th>
+                <th scope="col">Usuário</th>
+                <th scope="col">Período</th>
+                <th scope="col">Valor do aluguel</th>
+                <th scope="col">Comentar</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @rental_user.each do |rental| %>
+                <tr>
+              <td><%= rental.product.description %></td>  
+              <td><%= rental.user_id %></td>  
+              <td><%= rental.begin_date %> a <%= rental.end_date %></td>
+              <td> R$ <%= "%.2f" % (rental.rental_price.to_f/100) %></td>
+              <td><%= link_to "Link", rental_path(rental.id) %></td>
+                </tr>
+              <% end %>
+              <% else %>
+                <p><%= link_to "Alugue um equipamento", products_path %></p>
+              <% end %>
+            </tbody>
+
+        </table>
+        
+          
+      </div>
+
+<div class="review-container mt-20">
+
+    <table class="table table-borderless">
+
+        <thead class="thead-dark">Equipamentos alugados por você
+        <% if @rental_owner.size.positive? %>
+            <tr>
+            <th scope="col">Produto</th>
+            <th scope="col">Usuário</th>
+            <th scope="col">Período</th>
+            <th scope="col">Valor do Aluguel</th>
+            <th scope="col">Comentar</th>
+            </tr>
+        </thead>
+        <tbody>
+        <% receita_total = 0 %>
+            <% @rental_owner.each do |rental| %>
+            <tr>
+            <td><%= rental.product.description %></td>  
+            <td><%= rental.user_id %></td>  
+            <td><%= rental.begin_date %> a <%= rental.end_date %></td>
+            <td> R$ <%= "%.2f" % (rental.rental_price.to_f / 100) %></td>
+            <% receita_total += rental.rental_price %>
+            <td><%= link_to "Link", rental_path(rental.id) %></td>
+            </tr>
+            <% end %>
+            <% else %>
+            <p><%= link_to "Disponibilize seu equipamento", new_product_path %></p>
+            <% end %>
+        </tbody>
+
+    </table>
+    <p>Receita total com aluguéis: R$ <%= "%.2f" % (receita_total.to_f/100)  %></p>
+    
+    
+        
+          
+</div>
