@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  resources :products, only: [:index, :new, :create, :show, :edit, :update ]
+  resources :products
 
   get    "products_mine/", to: "products#show_equipaments", as: :products_user
   get    "products_rented", to: "products#show_rentals_equipaments", as: :renteds_user
